@@ -1,0 +1,38 @@
+# Data
+data/
+*.csv
+*.parquet
+*.json
+
+# Vector store
+vector_store/
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+venv/
+env/
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models & embeddings
+*.bin
+*.pt
+*.pkl
+*.pickle
+models/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
