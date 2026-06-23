@@ -14,3 +14,16 @@ from .preprocessor import (
     PRODUCT_MAP,
     BOILERPLATE_PATTERNS,
 )
+from .chunker import (
+    stratified_sample,
+    build_splitter,
+    chunk_complaints,
+)
+from .embedder import (
+    load_embedding_model,
+    generate_embeddings,
+    build_faiss_index,
+    save_vector_store,
+    load_vector_store,
+    EMBEDDING_MODEL,
+)
