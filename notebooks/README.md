@@ -26,3 +26,14 @@ Pipeline
 3. Text chunking — RecursiveCharacterTextSplitter (500 chars, 50 overlap)
 4. Embedding — all-MiniLM-L6-v2
 5. FAISS index build & persist
+
+Task 3: RAG Core Logic & Evaluation
+
+Objective: Build and evaluate the retrieval-augmented generation
+pipeline using the persisted vector store from Task 2.
+
+1. Load vector store + models
+2. Test retriever in isolation
+3. Test full RAG pipeline
+4. Qualitative evaluation on 8 representative questions
+   tas
