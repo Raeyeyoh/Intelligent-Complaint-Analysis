@@ -1,10 +1,4 @@
-"""
-generator.py
-------------
-Updated to load flan-t5 directly via AutoModelForSeq2SeqLM instead of
-the transformers pipeline, which dropped text2text-generation support
-in newer versions.
-"""
+
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
@@ -41,22 +35,7 @@ def load_generator(
     max_new_tokens: int = 300,
     device: int = -1,
 ) -> dict:
-    """
-    Load flan-t5 directly via AutoTokenizer + AutoModelForSeq2SeqLM.
-
-    Design choice: Direct model loading is used instead of the
-    transformers pipeline() because newer transformers versions
-    removed text2text-generation from the pipeline registry.
-    Returning a dict keeps the interface clean for generate_answer().
-
-    Args:
-        model_name:     HuggingFace model identifier.
-        max_new_tokens: Maximum tokens in the generated answer.
-        device:         -1 = CPU, 0 = first GPU.
-
-    Returns:
-        Dict with keys: tokenizer, model, max_new_tokens, device.
-    """
+    
     try:
         print(f"Loading tokenizer and model: {model_name} ...")
         tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -82,16 +61,7 @@ def load_generator(
 
 
 def generate_answer(prompt: str, generator: dict) -> str:
-    """
-    Generate an answer from the filled prompt using flan-t5.
-
-    Args:
-        prompt:    Complete prompt string from build_prompt().
-        generator: Dict returned by load_generator().
-
-    Returns:
-        Generated answer string.
-    """
+    
     if not prompt or not prompt.strip():
         raise ValueError("Prompt cannot be empty.")
 
@@ -105,7 +75,7 @@ def generate_answer(prompt: str, generator: dict) -> str:
             prompt,
             return_tensors="pt",
             truncation=True,
-            max_length=1024       # flan-t5-large max input length
+            max_length=1024      
         ).to(device)
 
         with torch.no_grad():
