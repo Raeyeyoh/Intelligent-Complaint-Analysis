@@ -36,4 +36,13 @@ pipeline using the persisted vector store from Task 2.
 2. Test retriever in isolation
 3. Test full RAG pipeline
 4. Qualitative evaluation on 8 representative questions
-   tas
+   task-4
+   What the UI includes
+   Feature
+   Chat history
+   Product filter dropdown
+   Example questions  
+   Sources panel
+   Clear button
+   Enter key submit
+   Error handling
